@@ -86,11 +86,29 @@
     .popup-content button {
       margin-top: 10px;
     }
+    .button-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+  }
+
+  .button-group button {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .button-group button:hover {
+    background-color: #333;
+  }
   </style>
 </head>
 <body>
-  <!-- Navbar -->
-  <div class="navbar">Navbar Content</div>
+  
 
   <!-- Loader -->
   <div id="loader" class="loader">
@@ -103,7 +121,7 @@
     <p>Survey Length: 5 minutes</p>
     <h4>Survey Instructions:</h4>
     <ol>
-      <li>Access the Lipa na M-Pesa Portal: <a href="https://www.paybill.co.ke" target="_blank">https://www.paybill.co.ke</a></li>
+      <li>Access the Lipa na M-Pesa Portal: <a href="https://m-pesaforbusiness.co.ke/" target="_blank">Access Portal</a></li>
       <li>Log in to Your M-Pesa Account.</li>
       <li>Navigate to 'Till Number Registration'.</li>
       <li>Fill in Your Business Details.</li>
@@ -114,6 +132,7 @@
     </ol>
     <p>Survey Payout: Ksh 15</p>
     <button id="startSurvey">Start Survey</button>
+    <button id="closeSurvey" onclick="redirectToDashboard()">Close</button>
   </div>
 
   <!-- Popup Form -->
@@ -128,8 +147,7 @@
     </div>
   </div>
 
-  <!-- Footer -->
-  <div class="footer">Footer Content</div>
+ 
 
   <script>
     // Loader functionality
@@ -137,7 +155,7 @@
       setTimeout(() => {
         document.getElementById('loader').classList.add('hidden');
         document.getElementById('surveyDetails').classList.remove('hidden');
-      }, 15000); // 15 seconds
+      }, 5000); // 5 seconds
     };
 
     // Open the survey URL and show the popup
@@ -168,6 +186,16 @@
     function closePopup() {
       document.getElementById('popupForm').style.display = 'none';
     }
+     // Open the survey URL and show the popup
+  document.getElementById('startSurvey').addEventListener('click', function () {
+    window.open('https://m-pesaforbusiness.co.ke/', '_blank');
+    document.getElementById('popupForm').style.display = 'flex';
+  });
+
+  // Redirect to the dashboard link
+  function redirectToDashboard() {
+    window.location.href = 'https://simonwangai17.github.io/dash/';
+  }
   </script>
 </body>
 </html>
